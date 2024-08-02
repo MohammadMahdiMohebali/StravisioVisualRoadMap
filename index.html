@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stravisio App Product Roadmap</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #4a90e2;
+            --secondary-color: #61dafb;
+            --background-color: #121212;
+            --card-background: #1e1e1e;
+            --text-color: #e0e0e0;
+            --text-color-muted: #a0a0a0;
+            --border-color: #333333;
+            --success-color: #4CAF50;
+            --warning-color: #FFC107;
+            --danger-color: #F44336;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            margin: 0;
+            padding: 0;
+            background-color: var(--background-color);
+            transition: background-color 0.3s ease;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 60px 20px;
+        }
+
+        h1 {
+            text-align: center;
+            color: var(--primary-color);
+            font-size: 2.8em;
+            margin-bottom: 60px;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+            position: relative;
+            overflow: hidden;
+            animation: slideInDown 1s ease;
+        }
+
+        h1::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            width: 0;
+            height: 3px;
+            background-color: var(--secondary-color);
+            transition: width 0.5s ease, left 0.5s ease;
+        }
+
+        h1:hover::after {
+            width: 100%;
+            left: 0;
+        }
+
+        @keyframes slideInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .timeline {
+            position: relative;
+            padding: 40px 0;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            width: 2px;
+            height: 100%;
+            background: var(--secondary-color);
+            opacity: 0.5;
+        }
+
+        .quarter {
+            padding: 30px;
+            background-color: var(--card-background);
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+            margin-bottom: 60px;
+            position: relative;
+            width: calc(50% - 50px);
+            max-width: 500px;
+            transition: all 0.3s ease;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 0.5s ease forwards;
+            cursor: pointer;
+        }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .quarter:hover {
+            transform: translateY(-5px) scale(1.02);
+            box-shadow: 0 6px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .quarter::before {
+            content: '';
+            position: absolute;
+            top: 30px;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background-color: var(--secondary-color);
+            box-shadow: 0 0 0 4px var(--background-color);
+            z-index: 1;
+            transition: transform 0.3s ease;
+        }
+
+        .quarter:hover::before {
+            transform: scale(1.2);
+        }
+
+        .quarter::after {
+            content: '';
+            position: absolute;
+            top: 40px;
+            width: 0;
+            height: 2px;
+            background-color: var(--secondary-color);
+            transition: width 0.5s ease;
+        }
+
+        .quarter:hover::after {
+            width: 40px;
+        }
+
+        .quarter:nth-child(odd) {
+            margin-right: 50%;
+        }
+
+        .quarter:nth-child(even) {
+            margin-left: 50%;
+        }
+
+        .quarter:nth-child(odd)::before {
+            right: -60px;
+        }
+
+        .quarter:nth-child(even)::before {
+            left: -60px;
+        }
+
+        .quarter:nth-child(odd)::after {
+            right: -40px;
+        }
+
+        .quarter:nth-child(even)::after {
+            left: -40px;
+        }
+
+        h2 {
+            color: var(--primary-color);
+            margin-top: 0;
+            font-size: 1.8em;
+            font-weight: 600;
+            position: relative;
+            animation: fadeInRight 1s ease;
+        }
+
+        @keyframes fadeInRight {
+            from {
+                opacity: 0;
+                transform: translateX(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        h3 {
+            color: var(--secondary-color);
+            font-size: 1.4em;
+            margin-top: 20px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            position: relative;
+            animation: fadeInLeft 1s ease;
+        }
+
+        @keyframes fadeInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        ul {
+            padding-left: 20px;
+            margin-bottom: 20px;
+        }
+
+        li {
+            margin-bottom: 8px;
+            color: var(--text-color-muted);
+            transition: color 0.3s ease;
+        }
+
+        li:hover {
+            color: var(--text-color);
+        }
+
+        .milestone {
+            background-color: rgba(74, 144, 226, 0.1);
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 20px;
+            font-weight: 600;
+            border-left: 4px solid var(--primary-color);
+            transition: all 0.3s ease;
+        }
+
+        .milestone:hover {
+            background-color: rgba(74, 144, 226, 0.2);
+            transform: translateX(5px);
+        }
+
+        .ongoing {
+            background-color: var(--card-background);
+            padding: 30px;
+            border-radius: 12px;
+            margin-top: 60px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+            animation: fadeIn 1s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .status-indicator {
+            display: inline-block;
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 0.8em;
+            font-weight: 600;
+            margin-left: 10px;
+        }
+
+        .status-planned {
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+        .status-in-progress {
+            background-color: var(--warning-color);
+            color: black;
+        }
+
+        .status-completed {
+            background-color: var(--success-color);
+            color: white;
+        }
+
+        .progress-bar {
+            height: 6px;
+            background-color: var(--border-color);
+            border-radius: 3px;
+            margin-top: 10px;
+            overflow: hidden;
+        }
+
+        .progress {
+            height: 100%;
+            background-color: var(--primary-color);
+            width: 0;
+            transition: width 1s ease;
+        }
+
+        .expand-btn {
+            background-color: transparent;
+            border: none;
+            color: var(--secondary-color);
+            cursor: pointer;
+            font-size: 1.2em;
+            transition: transform 0.3s ease;
+        }
+
+        .expand-btn:hover {
+            transform: scale(1.1);
+        }
+
+        .details {
+            display: none;
+            margin-top: 20px;
+            padding: 15px;
+            background-color: rgba(255, 255, 255, 0.05);
+            border-radius: 8px;
+            animation: fadeInDetails 0.5s ease;
+        }
+
+        @keyframes fadeInDetails {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Stravisio App Product Roadmap</h1>
+        <div class="timeline">
+            <div class="quarter">
+                <h2>Q3 2024 - Foundation Phase <span class="status-indicator status-in-progress">In Progress</span></h2>
+                <h3>1. MVP Development</h3>
+                <ul>
+                    <li>Develop core features for web and mobile platforms</li>
+                    <li>User Authentication & Basic Navigation</li>
+                    <li>Canvas functionality for drawing and note-taking</li>
+                    <li>Backend setup with MongoDB and RESTful API</li>
+                </ul>
+                <h3>2. Initial User Testing</h3>
+                <ul>
+                    <li>Internal alpha testing</li>
+                    <li>Limited external beta release</li>
+                    <li>Establish feedback collection mechanisms</li>
+                </ul>
+                <div class="milestone">Key Milestone: Functional MVP for both web and mobile</div>
+                <button class="expand-btn" onclick="toggleDetails(this)"><i class="fas fa-chevron-down"></i></button>
+                <div class="details">
+                    <p>Additional details about the Foundation Phase...</p>
+                </div>
+            </div>
+
+            <div class="quarter">
+                <h2>Q4 2024 - Public Beta & Iteration <span class="status-indicator status-planned">Planned</span></h2>
+                <h3>3. Public Beta Launch</h3>
+                <ul>
+                    <li>Release public beta for web and mobile</li>
+                    <li>Implement analytics for user behavior tracking</li>
+                    <li>Begin targeted marketing efforts</li>
+                </ul>
+                <h3>4. Rapid Iteration Based on Feedback</h3>
+                <ul>
+                    <li>Bi-weekly updates addressing user feedback</li>
+                    <li>Performance optimization</li>
+                    <li>UI/UX enhancements</li>
+                </ul>
+                <div class="milestone">Key Milestone: Achieve 10,000 active beta users</div>
+                <button class="expand-btn" onclick="toggleDetails(this)"><i class="fas fa-chevron-down"></i></button>
+                <div class="details">
+                    <p>Additional details about the Public Beta & Iteration...</p>
+                </div>
+            </div>
+
+            <div class="quarter">
+                <h2>Q1 2025 - Feature Expansion & Monetization Preparation <span class="status-indicator status-planned">Planned</span></h2>
+                <h3>5. Core Feature Enhancement</h3>
+                <ul>
+                    <li>Implement collaborative features</li>
+                    <li>Develop advanced drawing tools</li>
+                    <li>Add export options (PDF, PNG)</li>
+                </ul>
+                <h3>6. Monetization Strategy</h3>
+                <ul>
+                    <li>Define freemium model</li>
+                    <li>Develop initial set of premium features</li>
+                    <li>Implement basic payment infrastructure</li>
+                </ul>
+                <div class="milestone">Key Milestone: Launch first paid feature</div>
+                <button class="expand-btn" onclick="toggleDetails(this)"><i class="fas fa-chevron-down"></i></button>
+                <div class="details">
+                    <p>Additional details about Feature Expansion & Monetization Preparation...</p>
+                </div>
+            </div>
+
+            <div class="quarter">
+                <h2>Q2 2025 - Growth & Monetization <span class="status-indicator status-planned">Planned</span></h2>
+                <h3>7. User Acquisition Campaign</h3>
+                <ul>
+                    <li>Launch comprehensive marketing strategy</li>
+                    <li>Implement referral program</li>
+                    <li>Collaborate with influencers and educators</li>
+                </ul>
+                <h3>8. Monetization Rollout</h3>
+                <ul>
+                    <li>Launch subscription plans</li>
+                    <li>Introduce premium templates and tools</li>
+                    <li>Offer free trial for premium features</li>
+                </ul>
+                <div class="milestone">Key Milestone: Reach 100,000 users with 5% conversion to paid</div>
+                <button class="expand-btn" onclick="toggleDetails(this)"><i class="fas fa-chevron-down"></i></button>
+                <div class="details">
+                    <p>Additional details about Growth & Monetization...</p>
+                </div>
+            </div>
+
+            <div class="quarter">
+                <h2>Q3 2025 - Expansion & Integration <span class="status-indicator status-planned">Planned</span></h2>
+                <h3>9. Platform Expansion</h3>
+                <ul>
+                    <li>Begin internationalization efforts</li>
+                    <li>Develop API for third-party integrations</li>
+                    <li>Explore partnerships with educational institutions</li>
+                </ul>
+                <h3>10. Advanced Features</h3>
+                <ul>
+                    <li>Implement AI-assisted drawing tools</li>
+                    <li>Develop offline mode capabilities</li>
+                    <li>Enhance real-time collaboration features</li>
+                </ul>
+                <div class="milestone">Key Milestone: Launch in 3 new languages, secure 2 major integrations</div>
+                <button class="expand-btn" onclick="toggleDetails(this)"><i class="fas fa-chevron-down"></i></button>
+                <div class="details">
+                    <p>Additional details about Expansion & Integration...</p>
+                </div>
+            </div>
+
+            <div class="quarter">
+                <h2>Q4 2025 - Community & Refinement <span class="status-indicator status-planned">Planned</span></h2>
+                <h3>11. Community Building</h3>
+                <ul>
+                    <li>Launch user forums and community challenges</li>
+                    <li>Implement user-generated content showcase</li>
+                    <li>Host virtual user meetups and webinars</li>
+                </ul>
+                <h3>12. Product Refinement</h3>
+                <ul>
+                    <li>Conduct comprehensive user experience audit</li>
+                    <li>Optimize performance across all platforms</li>
+                    <li>Implement advanced analytics for personalized user experiences</li>
+                </ul>
+                <div class="milestone">Key Milestone: Achieve user satisfaction score of 4.5/5</div>
+                <button class="expand-btn" onclick="toggleDetails(this)"><i class="fas fa-chevron-down"></i></button>
+                <div class="details">
+                    <p>Additional details about Community & Refinement...</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="ongoing">
+            <h2>Ongoing Tasks & Considerations</h2>
+            <ul>
+                <li>Bi-weekly user feedback reviews and prioritization</li>
+                <li>Monthly security audits and compliance checks</li>
+                <li>Continuous performance monitoring and optimization</li>
+                <li>Regular team training on emerging technologies and best practices</li>
+                <li>Quarterly roadmap review and adjustment based on market trends and user needs</li>
+            </ul>
+        </div>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', (event) => {
+            const quarters = document.querySelectorAll('.quarter');
+            quarters.forEach((quarter, index) => {
+                quarter.style.animationDelay = `${index * 0.2}s`;
+            });
+
+            const progressBars = document.querySelectorAll('.progress');
+            progressBars.forEach((bar) => {
+                setTimeout(() => {
+                    bar.style.width = bar.parentElement.getAttribute('data-progress') || '0%';
+                }, 500);
+            });
+        });
+
+        function toggleDetails(btn) {
+            const details = btn.nextElementSibling;
+            const icon = btn.querySelector('i');
+            if (details.style.display === 'none' || details.style.display === '') {
+                details.style.display = 'block';
+                icon.classList.replace('fa-chevron-down', 'fa-chevron-up');
+            } else {
+                details.style.display = 'none';
+                icon.classList.replace('fa-chevron-up', 'fa-chevron-down');
+            }
+        }
+    </script>
+</body>
+</html>
