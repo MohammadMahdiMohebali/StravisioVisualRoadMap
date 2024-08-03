@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+    <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Stravisio App Product Roadmap</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <style>
+<style>
         :root {
             --primary-color: #4a90e2;
             --secondary-color: #61dafb;
@@ -285,9 +285,9 @@
                 transform: translateX(-50%);
             }
             .quarter {
-                width: calc(100% - 20px);
-                margin-left: 10px !important;
-                margin-right: 10px !important;
+                width: calc(100% - 40px);
+                margin-left: 20px !important;
+                margin-right: 20px !important;
             }
             .quarter::before,
             .quarter::after {
@@ -318,10 +318,9 @@
         <div class="timeline">
             <div class="quarter">
                 <h2>Q3 2024 - Foundation Phase <span class="status-indicator status-in-progress">In Progress</span></h2>
-                <div class="progress-bar" data-progress="60%"><div class="progress"></div></div>
-                <h3>1. MVP Development (Web & Mobile)</h3>
+                <h3>1. MVP Development</h3>
                 <ul>
-                    <li>Core functionality for web and mobile platforms</li>
+                    <li>Develop core features for web and mobile platforms</li>
                     <li>User Authentication & Basic Navigation</li>
                     <li>Canvas functionality for drawing and note-taking</li>
                     <li>Backend setup with MongoDB and RESTful API</li>
@@ -338,9 +337,9 @@
                     <p>Additional details about the Foundation Phase...</p>
                 </div>
             </div>
+
             <div class="quarter">
                 <h2>Q4 2024 - Public Beta & Iteration <span class="status-indicator status-planned">Planned</span></h2>
-                <div class="progress-bar" data-progress="0%"><div class="progress"></div></div>
                 <h3>3. Public Beta Launch</h3>
                 <ul>
                     <li>Release public beta for web and mobile</li>
@@ -356,11 +355,95 @@
                 <div class="milestone">Key Milestone: Achieve 10,000 active beta users</div>
                 <button class="expand-btn" onclick="toggleDetails(this)"><i class="fas fa-chevron-down"></i></button>
                 <div class="details">
-                    <p>Additional details about the Public Beta & Iteration phase...</p>
+                    <p>Additional details about the Public Beta & Iteration...</p>
                 </div>
             </div>
-            <!-- Add more quarters as needed following the same structure -->
+
+            <div class="quarter">
+                <h2>Q1 2025 - Feature Expansion & Monetization Preparation <span class="status-indicator status-planned">Planned</span></h2>
+                <h3>5. Core Feature Enhancement</h3>
+                <ul>
+                    <li>Implement collaborative features</li>
+                    <li>Develop advanced drawing tools</li>
+                    <li>Add export options (PDF, PNG)</li>
+                </ul>
+                <h3>6. Monetization Strategy</h3>
+                <ul>
+                    <li>Define freemium model</li>
+                    <li>Develop initial set of premium features</li>
+                    <li>Implement basic payment infrastructure</li>
+                </ul>
+                <div class="milestone">Key Milestone: Launch first paid feature</div>
+                <button class="expand-btn" onclick="toggleDetails(this)"><i class="fas fa-chevron-down"></i></button>
+                <div class="details">
+                    <p>Additional details about Feature Expansion & Monetization Preparation...</p>
+                </div>
+            </div>
+
+            <div class="quarter">
+                <h2>Q2 2025 - Growth & Monetization <span class="status-indicator status-planned">Planned</span></h2>
+                <h3>7. User Acquisition Campaign</h3>
+                <ul>
+                    <li>Launch comprehensive marketing strategy</li>
+                    <li>Implement referral program</li>
+                    <li>Collaborate with influencers and educators</li>
+                </ul>
+                <h3>8. Monetization Rollout</h3>
+                <ul>
+                    <li>Launch subscription plans</li>
+                    <li>Introduce premium templates and tools</li>
+                    <li>Offer free trial for premium features</li>
+                </ul>
+                <div class="milestone">Key Milestone: Reach 100,000 users with 5% conversion to paid</div>
+                <button class="expand-btn" onclick="toggleDetails(this)"><i class="fas fa-chevron-down"></i></button>
+                <div class="details">
+                    <p>Additional details about Growth & Monetization...</p>
+                </div>
+            </div>
+
+            <div class="quarter">
+                <h2>Q3 2025 - Expansion & Integration <span class="status-indicator status-planned">Planned</span></h2>
+                <h3>9. Platform Expansion</h3>
+                <ul>
+                    <li>Begin internationalization efforts</li>
+                    <li>Develop API for third-party integrations</li>
+                    <li>Explore partnerships with educational institutions</li>
+                </ul>
+                <h3>10. Advanced Features</h3>
+                <ul>
+                    <li>Implement AI-assisted drawing tools</li>
+                    <li>Develop offline mode capabilities</li>
+                    <li>Enhance real-time collaboration features</li>
+                </ul>
+                <div class="milestone">Key Milestone: Launch in 3 new languages, secure 2 major integrations</div>
+                <button class="expand-btn" onclick="toggleDetails(this)"><i class="fas fa-chevron-down"></i></button>
+                <div class="details">
+                    <p>Additional details about Expansion & Integration...</p>
+                </div>
+            </div>
+
+            <div class="quarter">
+                <h2>Q4 2025 - Community & Refinement <span class="status-indicator status-planned">Planned</span></h2>
+                <h3>11. Community Building</h3>
+                <ul>
+                    <li>Launch user forums and community challenges</li>
+                    <li>Implement user-generated content showcase</li>
+                    <li>Host virtual user meetups and webinars</li>
+                </ul>
+                <h3>12. Product Refinement</h3>
+                <ul>
+                    <li>Conduct comprehensive user experience audit</li>
+                    <li>Optimize performance across all platforms</li>
+                    <li>Implement advanced analytics for personalized user experiences</li>
+                </ul>
+                <div class="milestone">Key Milestone: Achieve user satisfaction score of 4.5/5</div>
+                <button class="expand-btn" onclick="toggleDetails(this)"><i class="fas fa-chevron-down"></i></button>
+                <div class="details">
+                    <p>Additional details about Community & Refinement...</p>
+                </div>
+            </div>
         </div>
+
         <div class="ongoing">
             <h2>Ongoing Tasks & Considerations</h2>
             <ul>
