@@ -4,90 +4,365 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Stravisio App Product Roadmap</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
+        :root {
+            --primary-color: #4a90e2;
+            --secondary-color: #61dafb;
+            --background-color: #121212;
+            --card-background: #1e1e1e;
+            --text-color: #e0e0e0;
+            --text-color-muted: #a0a0a0;
+            --border-color: #333333;
+            --success-color: #4CAF50;
+            --warning-color: #FFC107;
+            --danger-color: #F44336;
+        }
+
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Inter', sans-serif;
             line-height: 1.6;
-            color: #333;
-            max-width: 100%;
-            padding: 20px;
-            margin: 0 auto;
-            background-color: #f4f4f4;
+            color: var(--text-color);
+            margin: 0;
+            padding: 0;
+            background-color: var(--background-color);
+            transition: background-color 0.3s ease;
         }
+
         .container {
-            background-color: #fff;
-            border-radius: 8px;
-            padding: 20px;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
-        }
-        h1 {
-            color: #2c3e50;
-            text-align: center;
-        }
-        .timeline {
-            position: relative;
             max-width: 1200px;
             margin: 0 auto;
+            padding: 60px 20px;
         }
+
+        h1 {
+            text-align: center;
+            color: var(--primary-color);
+            font-size: 2.8em;
+            margin-bottom: 60px;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+            position: relative;
+            overflow: hidden;
+            animation: slideInDown 1s ease;
+        }
+
+        h1::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            width: 0;
+            height: 3px;
+            background-color: var(--secondary-color);
+            transition: width 0.5s ease, left 0.5s ease;
+        }
+
+        h1:hover::after {
+            width: 100%;
+            left: 0;
+        }
+
+        @keyframes slideInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .timeline {
+            position: relative;
+            padding: 40px 0;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            width: 2px;
+            height: 100%;
+            background: var(--secondary-color);
+            opacity: 0.5;
+        }
+
         .quarter {
-            padding: 20px;
-            background-color: #fff;
-            border-radius: 8px;
-            margin-bottom: 30px;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            padding: 30px;
+            background-color: var(--card-background);
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+            margin-bottom: 60px;
+            position: relative;
+            width: calc(50% - 50px);
+            max-width: 500px;
+            transition: all 0.3s ease;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 0.5s ease forwards;
+            cursor: pointer;
         }
-        .quarter h2 {
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .quarter:hover {
+            transform: translateY(-5px) scale(1.02);
+            box-shadow: 0 6px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .quarter::before {
+            content: '';
+            position: absolute;
+            top: 30px;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background-color: var(--secondary-color);
+            box-shadow: 0 0 0 4px var(--background-color);
+            z-index: 1;
+            transition: transform 0.3s ease;
+        }
+
+        .quarter:hover::before {
+            transform: scale(1.2);
+        }
+
+        .quarter::after {
+            content: '';
+            position: absolute;
+            top: 40px;
+            width: 0;
+            height: 2px;
+            background-color: var(--secondary-color);
+            transition: width 0.5s ease;
+        }
+
+        .quarter:hover::after {
+            width: 40px;
+        }
+
+        .quarter:nth-child(odd) {
+            margin-right: 50%;
+        }
+
+        .quarter:nth-child(even) {
+            margin-left: 50%;
+        }
+
+        .quarter:nth-child(odd)::before {
+            right: -60px;
+        }
+
+        .quarter:nth-child(even)::before {
+            left: -60px;
+        }
+
+        .quarter:nth-child(odd)::after {
+            right: -40px;
+        }
+
+        .quarter:nth-child(even)::after {
+            left: -40px;
+        }
+
+        h2 {
+            color: var(--primary-color);
             margin-top: 0;
-            color: #3498db;
+            font-size: 1.8em;
+            font-weight: 600;
+            position: relative;
+            animation: fadeInRight 1s ease;
         }
+
+        @keyframes fadeInRight {
+            from {
+                opacity: 0;
+                transform: translateX(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        h3 {
+            color: var(--secondary-color);
+            font-size: 1.4em;
+            margin-top: 20px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            position: relative;
+            animation: fadeInLeft 1s ease;
+        }
+
+        @keyframes fadeInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        ul {
+            padding-left: 20px;
+            margin-bottom: 20px;
+        }
+
+        li {
+            margin-bottom: 8px;
+            color: var(--text-color-muted);
+            transition: color 0.3s ease;
+        }
+
+        li:hover {
+            color: var(--text-color);
+        }
+
+        .milestone {
+            background-color: rgba(74, 144, 226, 0.1);
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 20px;
+            font-weight: 600;
+            border-left: 4px solid var(--primary-color);
+            transition: all 0.3s ease;
+        }
+
+        .milestone:hover {
+            background-color: rgba(74, 144, 226, 0.2);
+            transform: translateX(5px);
+        }
+
+        .ongoing {
+            background-color: var(--card-background);
+            padding: 30px;
+            border-radius: 12px;
+            margin-top: 60px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+            animation: fadeIn 1s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
         .status-indicator {
             display: inline-block;
             padding: 5px 10px;
             border-radius: 20px;
             font-size: 0.8em;
-            font-weight: bold;
+            font-weight: 600;
             margin-left: 10px;
         }
-        .status-in-progress {
-            background-color: #f1c40f;
-            color: #000;
-        }
+
         .status-planned {
-            background-color: #3498db;
-            color: #fff;
+            background-color: var(--primary-color);
+            color: white;
         }
-        .milestone {
-            background-color: #2ecc71;
-            color: #fff;
-            padding: 10px;
-            border-radius: 5px;
-            margin-top: 20px;
+
+        .status-in-progress {
+            background-color: var(--warning-color);
+            color: black;
         }
+
+        .status-completed {
+            background-color: var(--success-color);
+            color: white;
+        }
+
+        .progress-bar {
+            height: 6px;
+            background-color: var(--border-color);
+            border-radius: 3px;
+            margin-top: 10px;
+            overflow: hidden;
+        }
+
+        .progress {
+            height: 100%;
+            background-color: var(--primary-color);
+            width: 0;
+            transition: width 1s ease;
+        }
+
+        .expand-btn {
+            background-color: transparent;
+            border: none;
+            color: var(--secondary-color);
+            cursor: pointer;
+            font-size: 1.2em;
+            transition: transform 0.3s ease;
+        }
+
+        .expand-btn:hover {
+            transform: scale(1.1);
+        }
+
         .details {
-            background-color: #ecf0f1;
-            padding: 10px;
-            border-radius: 5px;
+            display: none;
             margin-top: 20px;
-        }
-        .ongoing {
-            background-color: #e74c3c;
-            color: #fff;
-            padding: 20px;
+            padding: 15px;
+            background-color: rgba(255, 255, 255, 0.05);
             border-radius: 8px;
-            margin-top: 30px;
+            animation: fadeInDetails 0.5s ease;
         }
+
+        @keyframes fadeInDetails {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Responsive Styles */
         @media (max-width: 768px) {
-            body {
-                padding: 10px;
-            }
             .quarter {
-                padding: 15px;
+                width: calc(100% - 20px);
+                margin: 0 auto 40px auto;
+            }
+
+            .timeline::before {
+                left: 10px;
+            }
+
+            .quarter::before, .quarter::after {
+                display: none;
+            }
+        }
+
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 2em;
+                margin-bottom: 40px;
+            }
+
+            h2 {
+                font-size: 1.4em;
+            }
+
+            h3 {
+                font-size: 1.2em;
+            }
+
+            .milestone {
+                font-size: 0.9em;
             }
         }
     </style>
 </head>
 <body>
- <div class="container">
+    <div class="container">
         <h1>Stravisio App Product Roadmap</h1>
         <div class="timeline">
             <div class="quarter">
@@ -229,8 +504,6 @@
             </ul>
         </div>
     </div>
-
-   
     <script>
         document.addEventListener('DOMContentLoaded', (event) => {
             const quarters = document.querySelectorAll('.quarter');
